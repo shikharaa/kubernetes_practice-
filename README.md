@@ -45,7 +45,14 @@ We can also scale down the pods
 ![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/bf2c3e2b-2bc9-4c0a-8908-5163bddbaa52)
 
 # Perform rolling updates
-Now we can create the another image by making the changes in the existing image like changing the log statement. 
+Now we can create the another image by making the changes in the existing image like changing the log statement. Herewe are using the config image ( see below) 
+Edit the deployment.yml file with new image ( nodeapp-config) 
+Then, apply the deployment.yml file 
+![image](https://github.com/shikharaa/kubernetes_project/assets/28976807/a4740daf-ad0b-4d7c-a1eb-2bc01d2a05d3)
+Now config app is running
+Then rollout to older image 
+![image](https://github.com/shikharaa/kubernetes_project/assets/28976807/b9b7f389-ac66-4c81-8372-83817c4c75fe)
+Now original version is running
 
 # Using a ConfigMap to store configuration
 Make changes in the app.js for getting value from config map 
