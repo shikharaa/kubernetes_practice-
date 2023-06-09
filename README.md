@@ -46,3 +46,23 @@ We can also scale down the pods
 
 # Perform rolling updates
 Now we can create the another image by making the changes in the existing image like changing the log statement. 
+
+# Using a ConfigMap to store configuration
+Make changes in the app.js for getting value from config map 
+res.send(process.env.MESSAGE + '\n') 
+Inside the deployment.yml file add a descriptor to take the values from configMap 
+envFrom:
+        - configMapRef:
+            name: app-config
+            
+Now create the configMap using 
+$kubectl create configmap app-config --from-literal=MESSAGE="This message came from a ConfigMap!"
+Here app-config name should be same in deployment file and string literal 
+![image](https://github.com/shikharaa/kubernetes_project/assets/28976807/0ccb1242-066e-40d4-817c-208395118f5a)
+
+$kubectl apply -f deployment.yml
+![image](https://github.com/shikharaa/kubernetes_project/assets/28976807/6a6ecf33-83b8-498b-b5d8-c948b02b1534)
+Now run it 
+![image](https://github.com/shikharaa/kubernetes_project/assets/28976807/4aa07a0f-6b74-488a-b560-58a9b42e45be)
+![image](https://github.com/shikharaa/kubernetes_project/assets/28976807/23ee68dd-ed3f-405b-b046-c77b69022a95)
+
