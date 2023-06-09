@@ -3,7 +3,7 @@ This is an node js application deployed in Kubernetes
 
 As the first step we need to create the docker image and push to docker hub 
 
-Steps for creating docker image 
+# Steps for creating docker image 
 
 In the current working directory where we have dockerfile run the below commands 
 $docker build -t shikhara1997/nodeapp . ( Here, shikhara1997 is my docker hub username) 
@@ -13,7 +13,7 @@ $docker push shikhara1997/nodeapp
 
 Now we have pushed our image to docker hub. 
 
-Next, we need to create a object ( deployment) in kubernetes cluster and access our application ( image ) 
+# Next, we need to create a object ( deployment) in kubernetes cluster and access our application ( image ) 
 For that install minikube and Kubectl on our machine. 
 After installing verify the kubectl and minikube 
 $minikube start 
@@ -36,3 +36,13 @@ $kubectl proxy
 ![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/e215d7b2-e740-4cf5-a9d7-6d35a3709b71)
 
 The access the URL: http://127.0.0.1:8080 
+
+# Scaling the application using a ReplicaSet
+Use the scale command to scale up your Deployment.
+$kubectl scale deployment nodeapp-deployment --replicas=3 ( Here we are increasing the pods) 
+![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/58ab11a9-d466-44e9-8bc4-03a34cba9e21)
+We can also scale down the pods 
+![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/bf2c3e2b-2bc9-4c0a-8908-5163bddbaa52)
+
+# Perform rolling updates
+Now we can create the another image by making the changes in the existing image like changing the log statement. 
