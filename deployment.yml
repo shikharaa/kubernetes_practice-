@@ -19,3 +19,6 @@ spec:
         image: shikhara1997/nodeapp:latest
         ports:
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: app-config
