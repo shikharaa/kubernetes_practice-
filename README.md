@@ -29,3 +29,10 @@ $kubectl get svc
 ![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/9d94f998-a1ad-4d6a-9418-9489f797a4bf)
 $minikube service nodeapp-service ( To get the URL to access the application ) 
 ![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/bfdea2e2-4c2b-4b84-915d-1d4151676f60)
+
+Other way to run the app without service.yml file is to
+$kubectl expose deployment/nodeapp-deployment
+$kubectl proxy 
+![image](https://github.com/shikharaa/kubernetes_practice-/assets/28976807/e215d7b2-e740-4cf5-a9d7-6d35a3709b71)
+
+The access the URL: http://127.0.0.1:8080 
