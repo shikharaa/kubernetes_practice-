@@ -1,4 +1,4 @@
-# kubernetes_practice-
+# kubernetes_project
 This is an node js application deployed in Kubernetes 
 
 As the first step we need to create the docker image and push to docker hub 
